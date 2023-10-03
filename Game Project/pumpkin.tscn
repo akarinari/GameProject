@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://coci0qglq6w1o"]
+
+[ext_resource type="Texture2D" uid="uid://q1ssb6wwbxpk" path="res://pumpkin.png" id="1_dkc1c"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Pumpkin" type="Sprite2D" parent="."]
+position = Vector2(2, -4)
+texture = ExtResource("1_dkc1c")
+hframes = 2
+vframes = 4
+frame = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(215, 330, 176, -23, 275, -42, 314, -130, 213, -215, 120, -286, 61, -173, 1, -48, -165, -10, -253, -166, -191, -328, -249, -360, -317, -238, -291, -94, -265, -22, -287, 130, -311, 234, -301, 350)
+one_way_collision = true
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(199, 136, 327, 70, 289, -28, 314, -130, 213, -215, 120, -286, 61, -173, 1, -48, -171, -30, -253, -166, -191, -328, -249, -360, -317, -238, -291, -94, -265, -22, -287, 130, -267, 214, -267, 330, -65, 326, -69, 172)
+one_way_collision = true
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(215, 330, 176, -23, 275, -42, 314, -130, 213, -215, 120, -286, 61, -173, 1, -48, -165, -10, -253, -166, -191, -328, -249, -360, -317, -238, -291, -94, -265, -22, -287, 130, -311, 234, -301, 350)
+one_way_collision = true
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(215, 330, 176, -23, 275, -42, 314, -130, 213, -215, 120, -286, 61, -173, 1, -48, -165, -10, -253, -166, -191, -328, -249, -360, -317, -238, -291, -94, -265, -22, -287, 130, -311, 234, -301, 350)
+one_way_collision = true
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(215, 330, 176, -23, 275, -42, 314, -130, 213, -215, 120, -286, 61, -173, 1, -48, -165, -10, -253, -166, -191, -328, -249, -360, -317, -238, -291, -94, -265, -22, -287, 130, -311, 234, -301, 350)
+one_way_collision = true
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(215, 330, 176, -23, 275, -42, 314, -130, 213, -215, 120, -286, 61, -173, 1, -48, -165, -10, -253, -166, -191, -328, -249, -360, -317, -238, -291, -94, -265, -22, -287, 130, -311, 234, -301, 350)
+one_way_collision = true
