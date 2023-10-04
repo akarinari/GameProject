@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4fa04884o8lo"]
+
+[ext_resource type="Texture2D" uid="uid://du5bilchs8r7k" path="res://luner.png" id="1_hqfw3"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Luner" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+texture = ExtResource("1_hqfw3")
+vframes = 2
+
+[node name="WalkingLeftA" type="CollisionPolygon2D" parent="."]
+position = Vector2(10, -13)
+polygon = PackedVector2Array(-159, -248, -146, -226, -117, -238, -56, -63, 102, 8, 218, -61, 269, -187, 201, -320, 217, -340, 272, -287, 299, -208, 298, -92, 246, -19, 253, 41, 269, 167, 302, 209, 301, 333, 286, 351, -227, 348, -176, 168, -197, 92, -178, 48, -191, -1, -278, -37, -324, -116, -287, -126, -267, -170, -200, -193)
+
+[node name="WalkingLeftB" type="CollisionPolygon2D" parent="."]
+position = Vector2(10, -13)
+polygon = PackedVector2Array(-159, -248, -146, -226, -117, -238, -111, -163, -56, -63, 102, 8, 218, -61, 269, -187, 201, -320, 217, -340, 272, -287, 299, -208, 298, -92, 246, -19, 253, 41, 269, 167, 247, 215, 250, 323, 225, 357, -186, 345, -163, 238, -176, 168, -197, 92, -178, 48, -191, -1, -278, -37, -324, -116, -287, -126, -267, -170, -200, -193)
