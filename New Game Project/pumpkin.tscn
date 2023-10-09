@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://coci0qglq6w1o"]
+
+[ext_resource type="Texture2D" uid="uid://q1ssb6wwbxpk" path="res://pumpkin.png" id="1_dkc1c"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Pumpkin" type="Sprite2D" parent="."]
+position = Vector2(1, 1.5)
+scale = Vector2(1, 1.00168)
+texture = ExtResource("1_dkc1c")
+hframes = 2
+vframes = 4
+
+[node name="WalkingRightA" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(-1, 6)
+polygon = PackedVector2Array(186, 316, 155, 179, 184, 78, 172, 37, 176, -23, 263, -56, 314, -130, 275, -149, 248, -189, 191, -211, 147, -264, 137, -246, 105, -261, 107, -196, 92, -148, 51, -79, 1, -48, -154, -18, -264, -146, -276, -242, -215, -328, -224, -356, -270, -321, -303, -232, -291, -94, -261, -21, -281, 114, -260, 172, -261, 299, -240, 328)
+one_way_collision = true
+
+[node name="WalkingRightB" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(199, 339, 155, 252, 158, 181, 185, 65, 162, 49, 176, -23, 275, -42, 314, -130, 213, -215, 153, -261, 106, -257, 103, -181, 67, -99, 1, -48, -165, -10, -253, -166, -191, -328, -249, -360, -317, -238, -291, -94, -265, -22, -287, 130, -257, 224, -252, 331)
+one_way_collision = true
+
+[node name="JumpingRight" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(199, 136, 347, 70, 289, -28, 314, -130, 147, -270, 117, -262, 63, -106, 1, -48, -171, -30, -267, -142, -269, -254, -191, -328, -249, -360, -317, -238, -291, -94, -265, -22, -287, 130, -267, 214, -267, 330, -65, 326, -69, 172)
+one_way_collision = true
+
+[node name="WalkingLeftA" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(10, -13)
+polygon = PackedVector2Array(-159, -248, -146, -226, -117, -238, -56, -63, 102, 8, 218, -61, 269, -187, 201, -320, 217, -340, 272, -287, 299, -208, 298, -92, 246, -19, 253, 41, 269, 167, 302, 209, 301, 333, 286, 351, -227, 348, -176, 168, -197, 92, -178, 48, -191, -1, -278, -37, -324, -116, -287, -126, -267, -170, -200, -193)
+
+[node name="WalkingLeftB" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(10, -13)
+polygon = PackedVector2Array(-159, -248, -146, -226, -117, -238, -111, -163, -56, -63, 102, 8, 218, -61, 269, -187, 201, -320, 217, -340, 272, -287, 299, -208, 298, -92, 246, -19, 253, 41, 269, 167, 247, 215, 250, 323, 225, 357, -186, 345, -163, 238, -176, 168, -197, 92, -178, 48, -191, -1, -278, -37, -324, -116, -287, -126, -267, -170, -200, -193)
+
+[node name="JumpingLeft" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(10, -13)
+polygon = PackedVector2Array(-159, -248, -146, -226, -117, -238, -111, -163, -56, -63, 102, 8, 218, -61, 269, -187, 201, -320, 217, -340, 272, -287, 299, -208, 298, -92, 246, -19, 253, 41, 269, 167, 247, 215, 250, 323, 228, 350, 41, 346, 107, 252, 67, 184, -165, 169, -350, 80, -293, -11, -178, 43, -191, -1, -278, -37, -324, -116, -287, -126, -267, -170, -200, -193)
