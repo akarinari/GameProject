@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://ypxgjuayivk3"]
+
+[ext_resource type="Texture2D" uid="uid://bxge5svvyf4ea" path="res://enemy_dog.png" id="1_neepg"]
+[ext_resource type="Script" path="res://AnimationPlayer.gd" id="2_hr4nn"]
+[ext_resource type="Script" path="res://walking_left.gd" id="3_8ym7n"]
+
+[sub_resource type="Animation" id="Animation_hkrrn"]
+resource_name = "walking_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_cfkrx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ctcri"]
+_data = {
+"RESET": SubResource("Animation_cfkrx"),
+"walking_right": SubResource("Animation_hkrrn")
+}
+
+[sub_resource type="Animation" id="Animation_hcjqd"]
+resource_name = "walking_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_snq5w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syhi3"]
+_data = {
+"RESET": SubResource("Animation_snq5w"),
+"walking_left": SubResource("Animation_hcjqd")
+}
+
+[node name="enemy_dog" type="Area2D"]
+
+[node name="walk_1" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(114, -51, 91, -76, 76, -127, 66, -92, 41, -111, 46, -57, 15, 3, -97, 11, -134, -2, -160, -40, -157, 3, -117, 34, -136, 123, -86, 126, -72, 81, 6, 80, 3, 121, 90, 122, 62, 73, 64, 20, 98, 9, 140, 8, 148, -40)
+
+[node name="walk_2" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(114, -51, 91, -76, 76, -127, 66, -92, 41, -111, 46, -57, 15, 3, -97, 11, -124, -3, -144, -39, -139, 4, -117, 34, -136, 123, -86, 126, -72, 81, 23, 78, 19, 122, 72, 122, 62, 73, 64, 20, 98, 9, 140, 8, 148, -40)
+
+[node name="attack_1" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(114, -51, 91, -76, 76, -127, 66, -92, 41, -111, 46, -57, 15, 3, -97, 11, -134, -2, -160, -40, -157, 3, -117, 34, -109, 126, -65, 125, -72, 81, 6, 80, 86, 109, 102, 77, 68, 67, 64, 20, 98, 9, 140, 8, 148, -40)
+
+[node name="attack_2" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(114, -51, 91, -76, 76, -127, 66, -92, 41, -111, 46, -57, 15, 3, -97, 11, -134, -2, -160, -40, -157, 3, -117, 34, -109, 126, -65, 125, -72, 81, 30, 81, 34, 118, 67, 123, 68, 67, 64, 20, 98, 9, 140, 8, 148, -40)
+
+[node name="r_walk_1" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-148, -42, -113, -50, -95, -73, -83, -119, -76, -125, -68, -94, -45, -107, -49, -60, -23, 0, 64, 12, 95, 12, 137, -8, 157, -39, 155, -6, 135, 24, 113, 30, 122, 57, 135, 113, 135, 113, 135, 125, 80, 126, 73, 77, -16, 79, -4, 125, -88, 123, -68, 72, -69, 22, -82, 10, -143, 3)
+
+[node name="r_walk_2" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-148, -42, -113, -50, -95, -73, -83, -119, -76, -125, -68, -94, -45, -107, -49, -60, -23, 0, 64, 12, 95, 12, 122, -6, 142, -39, 142, -8, 130, 22, 113, 30, 122, 57, 135, 113, 135, 113, 135, 125, 80, 126, 75, 81, -29, 79, -18, 120, -73, 121, -68, 72, -69, 22, -82, 10, -143, 3)
+
+[node name="r_attack_1" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-77, 8, -136, 5, -149, -23, -147, -43, -116, -47, -93, -72, -79, -122, -67, -94, -45, -109, -49, -55, -17, 4, 95, 10, 133, -3, 158, -41, 156, -3, 130, 27, 116, 31, 111, 126, 67, 123, 65, 82, -33, 78, -77, 105, -101, 100, -102, 85, -97, 70, -67, 65, -65, 32)
+
+[node name="r_attack_2" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-77, 8, -136, 5, -149, -23, -147, -43, -116, -47, -93, -72, -79, -122, -67, -94, -45, -109, -49, -55, -17, 4, 95, 10, 133, -3, 158, -41, 156, -3, 130, 27, 116, 31, 111, 126, 67, 123, 65, 82, -33, 78, -31, 122, -67, 122, -67, 100, -65, 80, -67, 65, -65, 32)
+
+[node name="EnemyDog" type="Sprite2D" parent="."]
+position = Vector2(-1, -2.38419e-07)
+scale = Vector2(0.641429, 0.641429)
+texture = ExtResource("1_neepg")
+hframes = 3
+vframes = 4
+frame = 5
+
+[node name="walking_right" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_ctcri")
+}
+script = ExtResource("2_hr4nn")
+
+[node name="walking_left" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_syhi3")
+}
+script = ExtResource("3_8ym7n")

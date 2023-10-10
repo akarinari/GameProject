@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw230dn2x23e"]
+
+[ext_resource type="Texture2D" uid="uid://cxo7l4qsuanuj" path="res://final_boss_fireball.png" id="1_jfkrr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4vxn"]
+radius = 21.4009
+
+[node name="final_boss_fireball" type="Area2D"]
+
+[node name="fireball_collisionshape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d4vxn")
+
+[node name="FinalBossFireball" type="Sprite2D" parent="."]
+position = Vector2(14, 5)
+texture = ExtResource("1_jfkrr")

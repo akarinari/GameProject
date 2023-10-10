@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://sog61vn4unr6"]
+
+[ext_resource type="Texture2D" uid="uid://chi2xrkaroy3u" path="res://Village Background.png" id="1_1n1h3"]
+[ext_resource type="PackedScene" uid="uid://coci0qglq6w1o" path="res://pumpkin.tscn" id="2_014ng"]
+[ext_resource type="PackedScene" uid="uid://ckw5ixoq84wj5" path="res://tile_map.tscn" id="3_5vrjk"]
+[ext_resource type="PackedScene" uid="uid://b4fa04884o8lo" path="res://luner.tscn" id="4_l0ftc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VillageBackground" type="Sprite2D" parent="."]
+position = Vector2(1779, 655)
+texture = ExtResource("1_1n1h3")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_014ng")]
+position = Vector2(514, 10)
+
+[node name="TileMap" parent="." instance=ExtResource("3_5vrjk")]
+position = Vector2(100, 175)
+
+[node name="Area2D" parent="." instance=ExtResource("4_l0ftc")]
+visible = false
+position = Vector2(843, 1118)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://gijmpoun0b8v"]
+
+[ext_resource type="Texture2D" uid="uid://djr7kqaf0hmux" path="res://final_boss.png" id="1_lcaqq"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="standing" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(4, -158, 70, -142, 80, -88, 65, -18, 46, -8, 74, 133, 20, 138, 20, 159, -20, 161, -20, 141, -87, 130, -42, -9, -27, -12, -67, -53, -55, -141)
+
+[node name="flying_attacking" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(5, -181, 72, -160, 73, -65, 50, -36, 50, -24, 101, -54, 104, -36, 69, -6, 54, -6, 73, 106, 70, 153, -87, 163, -75, 85, -47, -24, -102, -48, -95, -66, -39, -42, -66, -84, -59, -164)
+
+[node name="FinalBoss" type="Sprite2D" parent="."]
+position = Vector2(1, -3)
+texture = ExtResource("1_lcaqq")
+hframes = 2
+vframes = 2
+frame = 2
