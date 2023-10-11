@@ -2,44 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://cqjw7etdako0" path="res://tileset.png" id="1_8tkuw"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qkktl"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vy5y3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6244"]
 texture = ExtResource("1_8tkuw")
-texture_region_size = Vector2i(160, 50)
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-1:3/0 = 0
-1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:3/0/physics_layer_0/angular_velocity = 0.0
-1:4/0 = 0
-1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:4/0/physics_layer_0/angular_velocity = 0.0
-1:5/0 = 0
-1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:5/0/physics_layer_0/angular_velocity = 0.0
-1:6/0 = 0
-1:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:6/0/physics_layer_0/angular_velocity = 0.0
-1:7/0 = 0
-1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:7/0/physics_layer_0/angular_velocity = 0.0
-1:8/0 = 0
-1:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:8/0/physics_layer_0/angular_velocity = 0.0
-1:9/0 = 0
-1:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:9/0/physics_layer_0/angular_velocity = 0.0
-1:10/0 = 0
-1:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:10/0/physics_layer_0/angular_velocity = 0.0
-1:11/0 = 0
-1:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:11/0/physics_layer_0/angular_velocity = 0.0
+margins = Vector2i(15, 15)
+separation = Vector2i(0, 5)
+texture_region_size = Vector2i(175, 45)
 0:8/0 = 0
 0:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:8/0/physics_layer_0/angular_velocity = 0.0
@@ -68,14 +37,17 @@ texture_region_size = Vector2i(160, 50)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(79, 5, 79, 23, -59, 25, -59, 4)
+0:9/0 = 0
+0:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:9/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_2harg"]
 physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_qkktl")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_vy5y3")
 sources/0 = SubResource("TileSetAtlasSource_t6244")
 
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_2harg")
 collision_animatable = true
 format = 2
-layer_0/tile_data = PackedInt32Array(1835032, 0, 1, 1835040, 0, 1, 1835024, 0, 1, 917527, 0, 0, 917535, 0, 0)
+layer_0/tile_data = PackedInt32Array(1835032, 0, 1, 1835040, 0, 1, 1835024, 0, 1, 917527, 0, 0, 917535, 0, 0, 1310737, 65536, 1, 1310747, 65536, 1, 1310756, 65536, 1, 1310762, 65536, 1)
