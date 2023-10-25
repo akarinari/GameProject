@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0wmmh3dep73i"]
+
+[ext_resource type="Texture2D" uid="uid://chi2xrkaroy3u" path="res://Village Background.png" id="1_1n1h3"]
+[ext_resource type="PackedScene" uid="uid://yaeyi51kycs3" path="res://pumpkin.tscn" id="2_014ng"]
+[ext_resource type="PackedScene" uid="uid://kmdcsgwxeycj" path="res://tile_map.tscn" id="3_5vrjk"]
+[ext_resource type="PackedScene" path="res://luner.tscn" id="4_l0ftc"]
+[ext_resource type="PackedScene" uid="uid://urx67hc5yj23" path="res://enemy_dog.tscn" id="5_g8ntr"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VillageBackground" type="Sprite2D" parent="."]
+position = Vector2(1779, 655)
+texture = ExtResource("1_1n1h3")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_014ng")]
+position = Vector2(514, 10)
+
+[node name="Area2D" parent="." instance=ExtResource("4_l0ftc")]
+visible = false
+position = Vector2(843, 1118)
+
+[node name="enemy_dog" parent="." instance=ExtResource("5_g8ntr")]
+position = Vector2(527, 151)
+
+[node name="TileMap" parent="." instance=ExtResource("3_5vrjk")]
+position = Vector2(56, 325)

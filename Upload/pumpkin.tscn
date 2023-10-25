@@ -1,0 +1,214 @@
+[gd_scene load_steps=19 format=3 uid="uid://yaeyi51kycs3"]
+
+[ext_resource type="Texture2D" uid="uid://q1ssb6wwbxpk" path="res://pumpkin.png" id="1_dkc1c"]
+[ext_resource type="Script" path="res://pumpkin.gd" id="1_eesva"]
+[ext_resource type="Script" path="res://WalkingRight.gd" id="3_iixdp"]
+[ext_resource type="Script" path="res://WalkingLeft.gd" id="4_kibrh"]
+[ext_resource type="Script" path="res://JumpRight.gd" id="5_sy7ey"]
+[ext_resource type="Script" path="res://JumpLeft.gd" id="6_2amcr"]
+
+[sub_resource type="Animation" id="Animation_mnm57"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_g7sde"]
+resource_name = "WalkingRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hkjjx"]
+_data = {
+"RESET": SubResource("Animation_mnm57"),
+"WalkingRight": SubResource("Animation_g7sde")
+}
+
+[sub_resource type="Animation" id="Animation_37rb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_vf6w6"]
+resource_name = "WalkingLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7o8xm"]
+_data = {
+"RESET": SubResource("Animation_37rb5"),
+"WalkingLeft": SubResource("Animation_vf6w6")
+}
+
+[sub_resource type="Animation" id="Animation_31iy2"]
+resource_name = "JumpRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_db7wn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y8jm2"]
+_data = {
+"JumpRight": SubResource("Animation_31iy2"),
+"RESET": SubResource("Animation_db7wn")
+}
+
+[sub_resource type="Animation" id="Animation_8auvw"]
+resource_name = "JumpLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 4]
+}
+
+[sub_resource type="Animation" id="Animation_xddgq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cc08b"]
+_data = {
+"JumpLeft": SubResource("Animation_8auvw"),
+"RESET": SubResource("Animation_xddgq")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_eesva")
+
+[node name="Pumpkin" type="Sprite2D" parent="."]
+position = Vector2(8, 6)
+scale = Vector2(0.191979, 0.184589)
+texture = ExtResource("1_dkc1c")
+hframes = 2
+vframes = 4
+frame = 5
+
+[node name="WalkingRightA" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(1, 6)
+scale = Vector2(0.194309, 0.19953)
+polygon = PackedVector2Array(221.297, 290.682, 155, 179, 184, 78, 172, 37, 176, -23, 263, -56, 314, -130, 275, -149, 248, -189, 191, -211, 147, -264, 137, -246, 105, -261, 107, -196, 92, -148, 51, -79, -5.14645, -60.1412, -159.54, -35.0823, -264, -146, -276, -242, -215, -328, -224, -356, -270, -321, -303, -232, -291, -94, -261, -21, -281, 114, -298.494, 170.4, -319.08, 230.541, -308.787, 300.706)
+one_way_collision = true
+
+[node name="JumpingRight" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(8, 8)
+scale = Vector2(0.182513, 0.182513)
+polygon = PackedVector2Array(199, 136, 347, 70, 289, -28, 314, -130, 147, -270, 117, -262, 63, -106, 1, -48, -171, -30, -267, -142, -269, -254, -191, -328, -249, -360, -317, -238, -291, -94, -265, -22, -287, 130, -267, 214, -267, 330, -65, 326, -69, 172)
+one_way_collision = true
+
+[node name="WalkingLeftA" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(9.97934, 3)
+scale = Vector2(0.187533, 0.183407)
+polygon = PackedVector2Array(-159, -248, -146, -226, -117, -238, -56, -63, 102, 8, 218, -61, 269, -187, 201, -320, 217, -340, 272, -287, 299, -208, 298, -92, 246, -19, 253, 41, 269, 167, 302, 209, 301, 333, 286, 351, -227, 348, -176, 168, -197, 92, -178, 48, -191, -1, -278, -37, -324, -116, -287, -126, -267, -170, -200, -193)
+
+[node name="JumpingLeft" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(8, 8)
+scale = Vector2(0.182513, 0.182513)
+polygon = PackedVector2Array(199, 136, 347, 70, 289, -28, 314, -130, 147, -270, 117, -262, 63, -106, 1, -48, -171, -30, -267, -142, -269, -254, -191, -328, -249, -360, -317, -238, -291, -94, -265, -22, -287, 130, -267, 214, -267, 330, -65, 326, -69, 172)
+one_way_collision = true
+
+[node name="WalkingRight" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hkjjx")
+}
+script = ExtResource("3_iixdp")
+
+[node name="WalkingLeft" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7o8xm")
+}
+script = ExtResource("4_kibrh")
+
+[node name="JumpRight" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y8jm2")
+}
+script = ExtResource("5_sy7ey")
+
+[node name="JumpLeft" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cc08b")
+}
+script = ExtResource("6_2amcr")

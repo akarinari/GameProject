@@ -1,0 +1,222 @@
+[gd_scene load_steps=19 format=3 uid="uid://urx67hc5yj23"]
+
+[ext_resource type="Script" path="res://enemy_dog.gd" id="1_54p6e"]
+[ext_resource type="Texture2D" uid="uid://bxge5svvyf4ea" path="res://enemy_dog.png" id="1_neepg"]
+[ext_resource type="Script" path="res://walking_left.gd" id="3_8ym7n"]
+[ext_resource type="Script" path="res://attacking_right.gd" id="5_gyuir"]
+[ext_resource type="Script" path="res://attacking_left.gd" id="6_m680b"]
+
+[sub_resource type="Animation" id="Animation_cfkrx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hkrrn"]
+resource_name = "walking_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ctcri"]
+_data = {
+"RESET": SubResource("Animation_cfkrx"),
+"walking_right": SubResource("Animation_hkrrn")
+}
+
+[sub_resource type="GDScript" id="GDScript_l83jd"]
+script/source = "extends AnimationPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Input.is_action_just_pressed(\"ui_right\"):
+		play(\"WalkingRight\")
+		
+	elif Input.is_action_just_pressed(\"ui_left\"):
+		play(\"WalkingLeft\")
+"
+
+[sub_resource type="Animation" id="Animation_snq5w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_hcjqd"]
+resource_name = "walking_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syhi3"]
+_data = {
+"RESET": SubResource("Animation_snq5w"),
+"walking_left": SubResource("Animation_hcjqd")
+}
+
+[sub_resource type="Animation" id="Animation_5dtlp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_4e4ru"]
+resource_name = "attacking_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kt4pv"]
+_data = {
+"RESET": SubResource("Animation_5dtlp"),
+"attacking_right": SubResource("Animation_4e4ru")
+}
+
+[sub_resource type="Animation" id="Animation_6r1wh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_ry023"]
+resource_name = "attacking_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyDog:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hl8f"]
+_data = {
+"RESET": SubResource("Animation_6r1wh"),
+"attacking_left": SubResource("Animation_ry023")
+}
+
+[node name="enemy_dog" type="Area2D"]
+script = ExtResource("1_54p6e")
+
+[node name="walk_right" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(114, -51, 91, -76, 76, -127, 66, -92, 41, -111, 46, -57, 15, 3, -97, 11, -134, -2, -160, -40, -157, 3, -117, 34, -136, 123, -86, 126, -72, 81, 6, 80, 3, 121, 90, 122, 62, 73, 64, 20, 98, 9, 140, 8, 148, -40)
+
+[node name="attack_right" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(114, -51, 91, -76, 76, -127, 66, -92, 41, -111, 46, -57, 15, 3, -97, 11, -134, -2, -160, -40, -157, 3, -117, 34, -109, 126, -65, 125, -72, 81, 30, 77, 32, 120, 65, 119, 68, 67, 64, 20, 98, 9, 140, 8, 148, -40)
+
+[node name="walk_left" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-148, -42, -113, -50, -95, -73, -83, -119, -76, -125, -68, -94, -45, -107, -49, -60, -23, 0, 64, 12, 95, 12, 137, -8, 157, -39, 155, -6, 135, 24, 113, 30, 122, 57, 135, 113, 135, 113, 135, 125, 80, 126, 73, 77, -16, 79, -4, 125, -88, 123, -68, 72, -69, 22, -82, 10, -143, 3)
+
+[node name="attack_left" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-77, 8, -136, 5, -149, -23, -147, -43, -116, -47, -93, -72, -79, -122, -67, -94, -45, -109, -49, -55, -17, 4, 95, 10, 133, -3, 158, -41, 156, -3, 130, 27, 116, 31, 111, 126, 67, 123, 65, 82, -33, 78, -30, 120, -64, 120, -67, 106, -69, 79, -67, 65, -65, 32)
+
+[node name="EnemyDog" type="Sprite2D" parent="."]
+position = Vector2(-1, -2.38419e-07)
+scale = Vector2(0.641429, 0.641429)
+texture = ExtResource("1_neepg")
+hframes = 3
+vframes = 4
+frame = 7
+
+[node name="walking_right" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_ctcri")
+}
+script = SubResource("GDScript_l83jd")
+
+[node name="walking_left" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_syhi3")
+}
+script = ExtResource("3_8ym7n")
+
+[node name="attacking_right" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kt4pv")
+}
+script = ExtResource("5_gyuir")
+
+[node name="attacking_left" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5hl8f")
+}
+script = ExtResource("6_m680b")
